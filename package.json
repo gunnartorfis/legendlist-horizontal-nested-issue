@@ -1,0 +1,39 @@
+{
+  "name": "uniwind-horizontal",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "dependencies": {
+    "@gorhom/bottom-sheet": "^5.2.8",
+    "@gorhom/portal": "^1.0.14",
+    "@legendapp/list": "2.0.18",
+    "@react-navigation/elements": "^2.6.1",
+    "expo": "54.0.29",
+    "expo-build-properties": "~1.0.10",
+    "expo-constants": "~18.0.12",
+    "expo-linking": "~8.0.10",
+    "expo-router": "~6.0.19",
+    "expo-status-bar": "~3.0.9",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-edge-to-edge": "1.7.0",
+    "react-native-gesture-handler": "~2.28.0",
+    "react-native-keyboard-controller": "1.18.5",
+    "react-native-reanimated": "~4.1.1",
+    "react-native-safe-area-context": "~5.6.0",
+    "react-native-screens": "~4.16.0",
+    "react-native-worklets": "0.5.1",
+    "tailwindcss": "^4.1.17",
+    "uniwind": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "~19.1.10",
+    "typescript": "~5.9.2"
+  },
+  "private": true,
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web"
+  }
+}
