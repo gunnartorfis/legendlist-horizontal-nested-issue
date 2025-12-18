@@ -5,7 +5,7 @@ import Working from "../components/working";
 
 export default function App() {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, marginTop: 100 }}>
       <Broken />
       <View
         style={{ height: 1, backgroundColor: "blue", marginVertical: 20 }}

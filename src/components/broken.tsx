@@ -1,6 +1,6 @@
 import { LegendList } from "@legendapp/list";
 import React from "react";
-import { Dimensions, FlatList, View } from "react-native";
+import { Dimensions, View } from "react-native";
 
 // ---- Parity target (match the stripped noona-mobile setup) ----
 // Outer list: React Native FlatList
@@ -44,21 +44,5 @@ const BrokenList: React.FC<{
 };
 
 export default function Broken() {
-  return (
-    <FlatList
-      data={[
-        {
-          id: "user-vouchers",
-          component: (
-            <BrokenList vouchers={[{ id: "1" }, { id: "2" }, { id: "3" }]} />
-          ),
-        },
-      ]}
-      keyExtractor={(item) => item?.id ?? ""}
-      contentInsetAdjustmentBehavior="automatic"
-      renderItem={({ item }) => {
-        return <>{item?.component ?? null}</>;
-      }}
-    />
-  );
+  return <BrokenList vouchers={[{ id: "1" }, { id: "2" }, { id: "3" }]} />;
 }

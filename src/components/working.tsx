@@ -1,6 +1,6 @@
 import { LegendList } from "@legendapp/list";
 import React from "react";
-import { Dimensions, FlatList, View } from "react-native";
+import { Dimensions, View } from "react-native";
 
 // ---- Parity target (match the stripped noona-mobile setup) ----
 // Outer list: React Native FlatList
@@ -18,68 +18,50 @@ const BrokenList: React.FC<{
     null
   );
   return (
-    <View>
-      <LegendList
-        horizontal
-        estimatedItemSize={VOUCHER_WIDTH}
-        estimatedListSize={{ width: windowW, height: 1 }}
-        style={measuredHeight != null ? { height: measuredHeight } : undefined}
-        keyExtractor={({ id }) => id}
-        showsHorizontalScrollIndicator={false}
-        data={vouchers}
-        contentContainerStyle={{
-          paddingBottom: 32,
-        }}
-        renderItem={() => {
-          const item = (
-            <View
-              style={{
-                height: 200,
-                width: 200,
-                marginHorizontal: 16,
-                backgroundColor: "red",
-              }}
-            />
-          );
+    <LegendList
+      horizontal
+      estimatedItemSize={VOUCHER_WIDTH}
+      estimatedListSize={{ width: windowW, height: 1 }}
+      style={measuredHeight != null ? { height: measuredHeight } : undefined}
+      keyExtractor={({ id }) => id}
+      showsHorizontalScrollIndicator={false}
+      data={vouchers}
+      contentContainerStyle={{
+        paddingBottom: 32,
+      }}
+      renderItem={() => {
+        const item = (
+          <View
+            style={{
+              height: 200,
+              width: 200,
+              marginHorizontal: 16,
+              backgroundColor: "red",
+            }}
+          />
+        );
 
-          if (measuredHeight !== null) {
-            return item;
-          }
+        if (measuredHeight !== null) {
+          return item;
+        }
 
-          return (
-            <View
-              onLayout={(e) => {
-                const h = e.nativeEvent.layout.height;
-                if (h > 0) {
-                  setMeasuredHeight(h);
-                }
-              }}
-            >
-              {item}
-            </View>
-          );
-        }}
-      />
-    </View>
+        return (
+          <View
+            onLayout={(e) => {
+              const h = e.nativeEvent.layout.height;
+              if (h > 0) {
+                setMeasuredHeight(h);
+              }
+            }}
+          >
+            {item}
+          </View>
+        );
+      }}
+    />
   );
 };
 
 export default function Broken() {
-  return (
-    <FlatList
-      data={[
-        {
-          id: "user-vouchers",
-          component: (
-            <BrokenList vouchers={[{ id: "1" }, { id: "2" }, { id: "3" }]} />
-          ),
-        },
-      ]}
-      keyExtractor={(item) => item?.id ?? ""}
-      contentInsetAdjustmentBehavior="automatic"
-      renderItem={({ item }) => {
-        return <>{item?.component ?? null}</>;
-      }}
-    />
-  );
+  return <BrokenList vouchers={[{ id: "1" }, { id: "2" }, { id: "3" }]} />;
 }
